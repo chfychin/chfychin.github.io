@@ -9456,7 +9456,8 @@ figure.highlight pre .deletion {
   padding: 1rem;
   position: relative;
   border-radius: 12px;
-  background-image: url(https://tuchuang.voooe.cn/images/2024/08/24/longyear.png);
+  /* background-image: url(https://tuchuang.voooe.cn/images/2024/08/24/longyear.png); */
+  background-image: url(https://tuchuang.voooe.cn/images/2025/02/06/sheyear.png);
   background-size: cover;
   background-position: center;
 }
