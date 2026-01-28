@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://265832.xyz/site/census/index.html</loc>
+    
+    <lastmod>2026-01-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://265832.xyz/life/games/index.html</loc>
+    
+    <lastmod>2026-01-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://265832.xyz/box/gallery/index.html</loc>
     
     <lastmod>2026-01-28</lastmod>
@@ -30,15 +48,6 @@
   
   <url>
     <loc>http://265832.xyz/social/link/index.html</loc>
-    
-    <lastmod>2026-01-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://265832.xyz/site/census/index.html</loc>
     
     <lastmod>2026-01-28</lastmod>
     
@@ -140,15 +149,6 @@
     <loc>http://265832.xyz/posts/db289af5.html</loc>
     
     <lastmod>2024-09-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://265832.xyz/life/games/index.html</loc>
-    
-    <lastmod>2024-08-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -434,13 +434,6 @@
 
   
   <url>
-    <loc>http://265832.xyz/tags/Office/</loc>
-    <lastmod>2026-01-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://265832.xyz/tags/%E6%88%91%E7%9A%84Markdown/</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -448,7 +441,7 @@
   </url>
   
   <url>
-    <loc>http://265832.xyz/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</loc>
+    <loc>http://265832.xyz/tags/Office/</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -463,6 +456,13 @@
   
   <url>
     <loc>http://265832.xyz/tags/STM32/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://265832.xyz/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -490,14 +490,14 @@
   </url>
   
   <url>
-    <loc>http://265832.xyz/tags/C-%E6%A8%A1%E6%9D%BF/</loc>
+    <loc>http://265832.xyz/tags/%E6%9C%89%E6%84%9F/</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://265832.xyz/tags/%E6%9C%89%E6%84%9F/</loc>
+    <loc>http://265832.xyz/tags/C-%E6%A8%A1%E6%9D%BF/</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -518,14 +518,14 @@
   </url>
   
   <url>
-    <loc>http://265832.xyz/tags/%E6%AF%9B%E6%A6%82/</loc>
+    <loc>http://265832.xyz/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://265832.xyz/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%8D%E4%B9%A0/</loc>
+    <loc>http://265832.xyz/tags/%E6%AF%9B%E6%A6%82/</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -539,14 +539,14 @@
   </url>
   
   <url>
-    <loc>http://265832.xyz/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://265832.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://265832.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <loc>http://265832.xyz/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%8D%E4%B9%A0/</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

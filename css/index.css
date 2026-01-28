@@ -9523,7 +9523,7 @@ figure.highlight pre .deletion {
 
 /* 信息卡片彩带 */
 .author_top:hover {
-  background: url(/source/assets/cat.png);
+  background: url(/assets/cat.png);
   background-size: cover;
 }
 
