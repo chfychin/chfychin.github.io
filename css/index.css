@@ -6580,49 +6580,49 @@ blockquote.pullquote.right {
   font-family: YSHST;
   /* src: url(https://data-static.netdun.net/Fomalhaut/fonts/优设好身体.woff2);
    */
-  src: url(https://pcgdemo.chfychin.cn/fonts/优设好身体.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/优设好身体.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: MiSans;
   /* src: url(https://data-static.netdun.net/Fomalhaut/fonts/MiSans.woff2); */
-  src: url(https://pcgdemo.chfychin.cn/fonts/MiSans.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/MiSans.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: HYTMR;
   /* src: url(https://data-static.netdun.net/Fomalhaut/fonts/HYTangMeiRen55W.woff2); */
-  src: url(https://pcgdemo.chfychin.cn/fonts/HYTangMeiRen55W.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/HYTangMeiRen55W.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: LXGW;
   /* src: url(https://data-static.netdun.net/Fomalhaut/fonts/霞鹜文楷.woff2); */
-  src: url(https://pcgdemo.chfychin.cn/fonts/霞鹜文楷.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/霞鹜文楷.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: TTQHB;
   /* src: url(https://data-static.netdun.net/Fomalhaut/fonts/甜甜圈海报字体.woff2); */
-  src: url(https://pcgdemo.chfychin.cn/fonts/甜甜圈海报字体.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/甜甜圈海报字体.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: Consolas_1;
   /* src: url(https://data-static.netdun.net/Fomalhaut/fonts/Consolas.woff2); */
-  src: url(https://pcgdemo.chfychin.cn/fonts/Consolas.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/Consolas.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: ZhuZiAWan;
   /* src: url(https://data-static.netdun.net/Fomalhaut/fonts/ZhuZiAWan2.woff2); */
-  src: url(https://pcgdemo.chfychin.cn/fonts/ZhuZiAWan2.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/ZhuZiAWan2.woff2);
   font-display: swap;
 }
 
@@ -7788,7 +7788,7 @@ button#go-up:hover #percent {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content>.card-widget.card-info {
-  background-image: url(https://pcgdemo.chfychin.cn/img/springBg.png);
+  background-image: url(https://pcgdemo.265832.xyz/img/springBg.png);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
@@ -7796,7 +7796,7 @@ button#go-up:hover #percent {
 
 
 [data-theme="dark"] #aside-content>.card-widget.card-info {
-  background-image: url(https://pcgdemo.chfychin.cn/img/aurora.webp);
+  background-image: url(https://pcgdemo.265832.xyz/img/aurora.webp);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
@@ -7871,7 +7871,7 @@ input#pic-link {
 
 /* heo 加载动画头像 */
 .loading-img {
-  background: url(https://pcgdemo.chfychin.cn/img/p1.webp) no-repeat center center;
+  background: url(https://pcgdemo.265832.xyz/img/p1.webp) no-repeat center center;
   background-size: cover;
 }
 
@@ -9457,7 +9457,7 @@ figure.highlight pre .deletion {
   position: relative;
   border-radius: 12px;
   /* background-image: url(https://tuchuang.voooe.cn/images/2024/08/24/longyear.png); */
-  background-image: url(https://tuchuang.voooe.cn/images/2025/02/06/sheyear.png);
+  background-image: url(https://pcgdemo.265832.xyz/img/default_cover_71.webp);
   background-size: cover;
   background-position: center;
 }
