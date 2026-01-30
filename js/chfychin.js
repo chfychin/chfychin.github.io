@@ -294,6 +294,7 @@ window.onload = showWelcome;
 // 如果使用了pjax在加上下面这行代码
 document.addEventListener('pjax:complete', showWelcome);
 
+
 /* 欢迎信息 end */
 
 //----------------------------------------------------------------
@@ -303,7 +304,7 @@ document.addEventListener('pjax:complete', getWeibo);
 document.addEventListener('DOMContentLoaded', getWeibo);
 
 function getWeibo() {
-  fetch('https://weibo.265832.xyz/api').then(data => data.json()).then(data => {  // 这里要写上你的API!!!
+  fetch('https://weibo.265832.xyz').then(data => data.json()).then(data => {  // 这里要写上你的API!!!
     let html = '<style>.weibo-new{background:#ff3852}.weibo-hot{background:#ff9406}.weibo-jyzy{background:#ffc000}.weibo-recommend{background:#00b7ee}.weibo-adrecommend{background:#febd22}.weibo-friend{background:#8fc21e}.weibo-boom{background:#bd0000}.weibo-topic{background:#ff6f49}.weibo-topic-ad{background:#4dadff}.weibo-boil{background:#f86400}#weibo-container{overflow-y:auto;-ms-overflow-style:none;scrollbar-width:none}#weibo-container::-webkit-scrollbar{display:none}.weibo-list-item{display:flex;flex-direction:row;justify-content:space-between;flex-wrap:nowrap}.weibo-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:auto}.weibo-num{float:right}.weibo-hotness{display:inline-block;padding:0 6px;transform:scale(.8) translateX(-3px);color:#fff;border-radius:8px}</style>'
     html += '<div class="weibo-list">'
     let hotness = {
@@ -3642,3 +3643,4 @@ document.getElementById("mode-button").addEventListener("click", function () { s
 // }
 
 /* 和风天气 end */
+
