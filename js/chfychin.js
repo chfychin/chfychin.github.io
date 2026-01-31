@@ -2538,13 +2538,16 @@ if (m == 6 && dd == 30) {//小猫咪生日
 
 //传统节日部分
 
-if ((y == 2023 && m == 4 && dd == 5) || (y == 2024 && m == 4 && dd == 4) || (y == 2025 && m == 4 && dd == 4)) {//清明节
+// if ((y == 2023 && m == 4 && dd == 5) || (y == 2024 && m == 4 && dd == 4) || (y == 2025 && m == 4 && dd == 4)) {//清明节
+if ((y == 2025 && m == 4 && dd == 4) || (y == 2026 && m == 4 && dd == 5) || (y == 2027 && m == 4 && dd == 5) || (y == 2028 && m == 4 && dd == 4) || (y == 2029 && m == 4 && dd == 5) || (y == 2030 && m == 4 && dd == 5) || (y == 2031 && m == 4 && dd == 4) || (y == 2032 && m == 4 && dd == 4) || (y == 2033 && m == 4 && dd == 5) || (y == 2034 && m == 4 && dd == 5) || (y == 2035 && m == 4 && dd == 5)) {//清明节
   if (sessionStorage.getItem("isPopupWindow") != "1") {
     Swal.fire("清明时节雨纷纷,一束鲜花祭故人💐");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
-if ((y == 2023 && m == 12 && dd == 22) || (y == 2024 && m == 12 && dd == 21) || (y == 2025 && m == 12 && dd == 21)) {//冬至
+
+// if ((y == 2023 && m == 12 && dd == 22) || (y == 2024 && m == 12 && dd == 21) || (y == 2025 && m == 12 && dd == 21)) {//冬至
+if ((y == 2025 && m == 12 && dd == 21) || (y == 2026 && m == 12 && dd == 22) || (y == 2027 && m == 12 && dd == 22) || (y == 2028 && m == 12 && dd == 21) || (y == 2029 && m == 12 && dd == 22) || (y == 2030 && m == 12 && dd == 21) || (y == 2031 && m == 12 && dd == 22) || (y == 2032 && m == 12 && dd == 21) || (y == 2033 && m == 12 && dd == 22) || (y == 2034 && m == 12 && dd == 21) || (y == 2035 && m == 12 && dd == 22)) {//冬至
   if (sessionStorage.getItem("isPopupWindow") != "1") {
     Swal.fire("冬至快乐\n快吃上一碗热热的汤圆和饺子吧🧆");
     sessionStorage.setItem("isPopupWindow", "1");
@@ -2719,10 +2722,25 @@ let newYearTimer = null;
 var newYear = () => {
   clearTimeout(newYearTimer);
   if (!document.querySelector('#newYear')) return;
-  // 新年时间戳 and 星期对象
-  let newYear = new Date('2026-02-17 00:00:00').getTime() / 1000,
-    week = { 0: '周日', 1: '周一', 2: '周二', 3: '周三', 4: '周四', 5: '周五', 6: '周六' }
 
+  // 2026~2035 春节日期 (时间戳 / 1000)
+  const springFestivalDates = [
+    new Date('2026-02-17 00:00:00').getTime() / 1000,
+    new Date('2027-02-06 00:00:00').getTime() / 1000,
+    new Date('2028-01-26 00:00:00').getTime() / 1000,
+    new Date('2029-02-13 00:00:00').getTime() / 1000,
+    new Date('2030-02-03 00:00:00').getTime() / 1000,
+    new Date('2031-01-23 00:00:00').getTime() / 1000,
+    new Date('2032-02-11 00:00:00').getTime() / 1000,
+    new Date('2033-01-31 00:00:00').getTime() / 1000,
+    new Date('2034-02-19 00:00:00').getTime() / 1000,
+    new Date('2035-02-08 00:00:00').getTime() / 1000
+  ];
+
+  // 星期对象
+  let week = { 0: '周日', 1: '周一', 2: '周二', 3: '周三', 4: '周四', 5: '周五', 6: '周六' };
+
+  // 初始化运行
   time();
 
   // 补零函数
@@ -2731,24 +2749,42 @@ var newYear = () => {
   function time() {
     // 现在 时间对象
     let now = new Date();
+    let nowTimestamp = Math.round(now.getTime() / 1000);
 
     // 右下角 今天
-    document.querySelector('#newYear .today').innerHTML = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' ' + week[now.getDay()]
+    document.querySelector('#newYear .today').innerHTML = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' ' + week[now.getDay()];
+
+    // 获取当前时间之后的最近一个春节时间戳
+    // 如果当前时间已经过了列表中所有年份，则默认取最后一个
+    let newYear = springFestivalDates.find(date => date > nowTimestamp) || springFestivalDates[springFestivalDates.length - 1];
+
+    // 如果当前时间刚好在某个春节点（或之后极短时间内），为了防止闪烁，通常可以视为已过年，
+    // 但这里逻辑默认向下寻找未来时间，所以无需特殊处理，除非已经超过2035年。
+    if (nowTimestamp >= springFestivalDates[springFestivalDates.length - 1]) {
+      // 如果超过了2035年，则显示新年快乐（或者你可以在这里添加更多年份）
+      document.querySelector('#newYear .title').innerHTML = 'Happy New Year!';
+      document.querySelector('#newYear .newYear-time').innerHTML = '<span class="happyNewYear">新年快乐</span>';
+      return;
+    }
 
     // 现在与新年相差秒数
-    let second = newYear - Math.round(now.getTime() / 1000);
+    let second = newYear - nowTimestamp;
+    let targetYear = new Date(newYear * 1000).getFullYear();
 
-    // 小于0则表示已经过年
+    // 小于0则表示已经过年 (理论上因为上面的find逻辑，second应该总是>=0，除非所有日期都过期)
     if (second < 0) {
       document.querySelector('#newYear .title').innerHTML = 'Happy New Year!';
-      document.querySelector('#newYear .newYear-time').innerHTML = '<span class="happyNewYear">新年快乐</p>';
+      document.querySelector('#newYear .newYear-time').innerHTML = '<span class="happyNewYear">新年快乐</span>';
     } else {
       // 大于0则还未过年
-      document.querySelector('#newYear .title').innerHTML = '距离2026年春节：'
+      document.querySelector('#newYear .title').innerHTML = '距离' + targetYear + '年春节：';
 
       // 大于一天则直接渲染天数
       if (second > 86400) {
         document.querySelector('#newYear .newYear-time').innerHTML = `<span class="day">${Math.ceil(second / 86400)}<span class="unit">天</span></span>`
+        // 距离超过一天时，为了性能和节省资源，可以降低刷新频率（例如每分钟刷新一次），
+        // 但为了保持代码逻辑简单且与源代码一致，这里仍保持每秒刷新。
+        newYearTimer = setTimeout(time, 1000);
       } else {
         // 小于一天则使用时分秒计时。
         let h = nol(parseInt(second / 3600));
@@ -2756,19 +2792,65 @@ var newYear = () => {
         let m = nol(parseInt(second / 60));
         second %= 60;
         let s = nol(second);
-        document.querySelector('#newYear .newYear-time').innerHTML = `<span class="time">${h}:${m}:${s}</span></span>`;
+        document.querySelector('#newYear .newYear-time').innerHTML = `<span class="time">${h}:${m}:${s}</span>`;
         // 计时
         newYearTimer = setTimeout(time, 1000);
       }
     }
   }
 
+  // clearTimeout(newYearTimer);
+  // if (!document.querySelector('#newYear')) return;
+  // // 新年时间戳 and 星期对象
+  // let newYear = new Date('2026-02-17 00:00:00').getTime() / 1000,
+  //   week = { 0: '周日', 1: '周一', 2: '周二', 3: '周三', 4: '周四', 5: '周五', 6: '周六' }
+
+  // time();
+
+  // // 补零函数
+  // function nol(h) { return h > 9 ? h : '0' + h; };
+
+  // function time() {
+  //   // 现在 时间对象
+  //   let now = new Date();
+
+  //   // 右下角 今天
+  //   document.querySelector('#newYear .today').innerHTML = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' ' + week[now.getDay()]
+
+  //   // 现在与新年相差秒数
+  //   let second = newYear - Math.round(now.getTime() / 1000);
+
+  //   // 小于0则表示已经过年
+  //   if (second < 0) {
+  //     document.querySelector('#newYear .title').innerHTML = 'Happy New Year!';
+  //     document.querySelector('#newYear .newYear-time').innerHTML = '<span class="happyNewYear">新年快乐</p>';
+  //   } else {
+  //     // 大于0则还未过年
+  //     document.querySelector('#newYear .title').innerHTML = '距离2026年春节：'
+
+  //     // 大于一天则直接渲染天数
+  //     if (second > 86400) {
+  //       document.querySelector('#newYear .newYear-time').innerHTML = `<span class="day">${Math.ceil(second / 86400)}<span class="unit">天</span></span>`
+  //     } else {
+  //       // 小于一天则使用时分秒计时。
+  //       let h = nol(parseInt(second / 3600));
+  //       second %= 3600;
+  //       let m = nol(parseInt(second / 60));
+  //       second %= 60;
+  //       let s = nol(second);
+  //       document.querySelector('#newYear .newYear-time').innerHTML = `<span class="time">${h}:${m}:${s}</span></span>`;
+  //       // 计时
+  //       newYearTimer = setTimeout(time, 1000);
+  //     }
+  //   }
+  // }
+
   // 元宝飘落
   jQuery(document).ready(function ($) {
     $('#newYear').wpSuperSnow({
       // https://pcgdemo.265832.xyz/img/default_cover_71.webp
       //   - https://pcgdemo.265832.xyz/img/default_cover_72.webp
-      flakes: ['https://pcgdemo.265832.xyz/img/default_cover_71.webp', 'https://pcgdemo.265832.xyz/img/default_cover_71.webp', 'https://pcgdemo.265832.xyz/img/default_cover_71.webp'],
+      flakes: ['https://tuchuang.voooe.cn/images/2026/01/31/yuanbao.gif', 'https://tuchuang.voooe.cn/images/2026/01/31/yuanbao.gif', 'https://tuchuang.voooe.cn/images/2026/01/31/yuanbao.gif'],
       // flakes: ['https://tuchuang.voooe.cn/images/2023/01/02/yb1.webp', 'https://tuchuang.voooe.cn/images/2023/01/02/yb2.webp', 'https://tuchuang.voooe.cn/images/2023/01/02/yb3.webp'],
       totalFlakes: '100',
       zIndex: '999999',
