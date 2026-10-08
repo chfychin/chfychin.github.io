@@ -78,7 +78,7 @@ $.ajax({
   type: 'get',
   url: 'https://apis.map.qq.com/ws/location/v1/ip',
   data: {
-    key: 'YOUR_TENCENT_MAP_KEY',
+    key: 'TXWBZ-2UUCQ-FO75Q-2P7SA-3PZLT-RZBMX',
     output: 'jsonp',
   },
   dataType: 'jsonp',
