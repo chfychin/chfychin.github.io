@@ -1,4 +1,4 @@
-var start_date = '20200101' // 开始日期
+var start_date = '20240316' // 开始日期
 var date = new Date();
 var end_date = '' + date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate())); // 结束日期
 // 更新链接 https://openapi.baidu.com/oauth/2.0/token?grant_type=refresh_token&refresh_token=<你的refresh_token>&client_id=<你的client_id>&client_secret=<你的client_secret>
@@ -7,8 +7,8 @@ var end_date = '' + date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth()
 // 要看API Key与Secret Key见 http://developer.baidu.com/console#app/27508680
 // 如果前面的refresh token不行就用这个
 // refresh_token: <你的 refresh_token>
-var access_token = 'YOUR_BAIDU_ACCESS_TOKEN' // accessToken（2026-10-01 更新，有效期 30 天；refresh_token 一次性，刷新后须同步第 4/9 行）
-var site_id = 'YOUR_BAIDU_SITE_ID' // 网址 id
+var access_token = '121.85a27c7b77f4c28eb892de78247566b1.YmJX-jcN1SeBB9gHu085GsH2k3vHe_GAITXZ-yx.eBHHBw' // accessToken（2026-10-01 更新，有效期 30 天；refresh_token 一次性，刷新后须同步第 4/9 行）
+var site_id = '23585452' // 网址 id
 var dataUrl = 'https://baidu-tongji.example.com/api?access_token=' + access_token + '&site_id=' + site_id
 // var dataUrl = 'https://baidu-tongji.example.com/api?site_id=' + site_id
 var metrics = 'pv_count' // 统计访问次数 PV 填写 'pv_count'，统计访客数 UV 填写 'visitor_count'，二选一
