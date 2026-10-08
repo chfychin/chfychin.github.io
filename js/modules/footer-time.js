@@ -48,8 +48,10 @@ function createtime() {
   1 == String(snum).length && (snum = "0" + snum);
   // 摸鱼牌子按"当天是否法定休息日"切换：休息日=放假摸鱼中，工作日=上班摸鱼中
   var boardBadge = isRestDay(new Date())
-    ? `<img class='boardsign' src='/assets/badge/Fomalhaut-rest.svg' title='放假啦，光明正大地摸鱼~'>`
-    : `<img class='boardsign' src='/assets/badge/Fomalhaut-work.svg' title='上班偷偷摸鱼，别被发现~'>`;
+    ? `<img class='boardsign' src='/assets/gulp/comment_bg.png' title='放假啦，光明正大地摸鱼~'>`
+    : `<img class='boardsign' src='/assets/gulp/comment_bg.png' title='上班偷偷摸鱼，别被发现~'>`;
+    // ? `<img class='boardsign' src='/assets/badge/Chfychin-rest.svg' title='放假啦，光明正大地摸鱼~'>`
+    // : `<img class='boardsign' src='/assets/badge/Chfychin-work.svg' title='上班偷偷摸鱼，别被发现~'>`;
   let currentTimeHtml =
     boardBadge +
     `<br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${ynum} 年 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位（信号单程需 ${lt}）🚀</div>`;

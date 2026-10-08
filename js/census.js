@@ -9,7 +9,7 @@ var end_date = '' + date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth()
 // refresh_token: <你的 refresh_token>
 var access_token = '121.85a27c7b77f4c28eb892de78247566b1.YmJX-jcN1SeBB9gHu085GsH2k3vHe_GAITXZ-yx.eBHHBw' // accessToken（2026-10-01 更新，有效期 30 天；refresh_token 一次性，刷新后须同步第 4/9 行）
 var site_id = '23585452' // 网址 id
-var dataUrl = 'https://openapi.baidu.com/rest/2.0/tongji/config/getSiteList?access_token=' + access_token + '&site_id=' + site_id
+var dataUrl = 'https://openapi.baidu.com/rest/2.0/tongji/report/getData?access_token=' + access_token + '&site_id=' + site_id
 // var dataUrl = 'https://baidu-tongji.example.com/api?site_id=' + site_id
 var metrics = 'pv_count' // 统计访问次数 PV 填写 'pv_count'，统计访客数 UV 填写 'visitor_count'，二选一
 var metricsName = (metrics === 'pv_count' ? '访问次数' : (metrics === 'visitor_count' ? '访客数' : ''))
