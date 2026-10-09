@@ -161,7 +161,7 @@ html { scroll-padding-top: 70px !important; }
 .card-announcement .a-btn:hover { color: #fff; filter: brightness(1.06); transform: translateY(-1px);
   box-shadow: 0 6px 16px color-mix(in srgb, var(--anno-accent) 45%, transparent); }
 .card-announcement .a-btn svg { width: 13px; height: 13px; fill: currentColor; }
-/* 欢迎信息块：改成左对齐的「小标签 + 正文」，并让 fomal.js 写死的内联蓝色跟随主题色 */
+/* 欢迎信息块：改成左对齐的「小标签 + 正文」，并让 chfychin.js 写死的内联蓝色跟随主题色 */
 .card-widget.card-announcement #welcome-info { background: var(--anno-soft-bg); border: 1px solid var(--anno-soft-bd);
   border-radius: 14px; padding: 10px 13px; margin-top: 0; text-align: left; font-weight: 500; line-height: 1.9; font-size: 13.5px; }
 .card-widget.card-announcement #welcome-info b { font-weight: 500; }
@@ -266,7 +266,7 @@ html[data-theme="light"] #post .post-copyright:before {
 /*  */
 /* 侧边栏「右键模式」按钮：显示"站点自定义右键"当前是开还是关 */
 /*   开 = 跟随主题色（主题默认外观，不动）；关 = 灰色 + 图标上一道斜杠 */
-/*   状态源与 source/js/fomal.js 的 mouseMode 完全一致（localStorage 键 "mouse"，缺省视为开） */
+/*   状态源与 source/js/chfychin.js 的 mouseMode 完全一致（localStorage 键 "mouse"，缺省视为开） */
 /*   纯 HTML/CSS/JS 注入实现，不改主题源码（rightside.pug 的 button 原样保留） */
 html[data-rm="off"] #rightside button:has(> i.fa-mouse){position:relative;background-color:#909090 !important;color:#fff !important;}
 html[data-rm="off"] #rightside button:has(> i.fa-mouse):hover{background-color:#a8a8a8 !important;}

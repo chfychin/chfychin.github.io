@@ -1,11 +1,11 @@
 /* ============================================================================
  * modules/settings.js —— 美化模块（站点设置面板 / Winbox）
  * ----------------------------------------------------------------------------
- * 本文件由 source/js/fomal.js 拆出（2026-10-03 屎山重构）。
+ * 本文件由 source/js/chfychin.js 拆出（2026-10-03 屎山重构）。
  * 【重要】这里故意不套 IIFE：主题 pug 模板里有大量内联 onclick="xxx()"，
  *        以及别的脚本会直接调全局函数，所以本文件里的声明必须留在全局作用域。
  * ----------------------------------------------------------------------------
- * 包含的模块（括号内为拆分前在 fomal.js 里的行号）：
+ * 包含的模块（括号内为拆分前在 chfychin.js 里的行号）：
  *   · 美化模块（1753-2925）—— 包括：localStorage 设置读写、设置面板 HTML 拼装（createWinbox/winboxNeedSize/winResize/toggleWinbox）、各开关的实时生效逻辑、滑条增强等
  * ----------------------------------------------------------------------------
  * 整个站点最大的一块：点右下角齿轮弹出的设置面板，管背景图、字体、主题色、侧栏宽度等一大堆外观开关。
@@ -77,7 +77,7 @@
  * ========================================================================== */
 
 /* ------------------------------ 美化模块 ------------------------------ */
-/* 原 fomal.js 1753-2925 行，原样搬运，未改逻辑 */
+/* 原 chfychin.js 1753-2925 行，原样搬运，未改逻辑 */
 /* 美化模块 start */
 
 // 更新版本需要每个用户都恢复一次默认设置
@@ -535,7 +535,7 @@ let EEEDog = "url(https://www.loliapi.com/acg/pc/)";
 // 随机美图（2026-09-30 换到 api.dujin.org/pic/；2026-10-06 该接口开始返回 0 字节空图，改用 moe.jitsu.top 萌图）
 let seovx = "url(https://moe.jitsu.top/api?sort=pc)";
 // picsum随机
-let picsum = "url(https://picsum.photos/id/1043/1920/1080.webp)";
+let picsum = "url(https://pcgdemo.265832.xyz/img/default_cover_5.webp)";
 // 小歪二次元
 // let waiDongman = "url(https://api.ixiaowai.cn/api/api.php)";
 // 高清壁纸（2026-09-30 修复：原 api.ixiaowai.cn 已失效）
@@ -596,10 +596,10 @@ function resetBg_() {
   var el = document.getElementById("defineBg");
   if (!el) return;
   el.innerText = `:root{
-    --default-bg: url(https://picsum.photos/id/1015/1920/1080);
-    --darkmode-bg:url(https://picsum.photos/id/1044/1920/1080);
-    --mobileday-bg: url(https://picsum.photos/id/1018/1920/1080);
-    --mobilenight-bg: url(https://picsum.photos/id/1039/1920/1080);
+    --default-bg: url(https://pcgdemo.265832.xyz/img/default_cover_32.webp);
+    --darkmode-bg:url(https://pcgdemo.265832.xyz/img/default_cover_13.webp);
+    --mobileday-bg: url(https://pcgdemo.265832.xyz/img/mb12.webp);
+    --mobilenight-bg: url(https://pcgdemo.265832.xyz/img/mb17.webp);
   }`;
 }
 
@@ -917,6 +917,10 @@ function createWinbox() {
 <a class="swf" id="swf_LXGW" href="javascript:;" rel="noopener external nofollow" style="font-family:'LXGW'!important;color:#303030" onclick="setFont('LXGW')">霞鹜文楷</a>
 <a class="swf" id="swf_SourceHanSerif" href="javascript:;" rel="noopener external nofollow" style="font-family:'SourceHanSerif'!important;color:#303030" onclick="setFont('SourceHanSerif')">思源宋体</a>
 <a class="swf" id="swf_LXGWNeoXiHei" href="javascript:;" rel="noopener external nofollow" style="font-family:'LXGWNeoXiHei'!important;color:#303030" onclick="setFont('LXGWNeoXiHei')">霞鹜新晰黑</a>
+<a class="swf" id="swf_YSHST" href="javascript:;" rel="noopener external nofollow" style="font-family:'YSHST'!important;color:#303030" onclick="setFont('YSHST')">优设好身体</a>
+<a class="swf" id="swf_TTQHB" href="javascript:;" rel="noopener external nofollow" style="font-family:'TTQHB'!important;color:#303030" onclick="setFont('TTQHB')">甜甜圈海报字体</a>
+<a class="swf" id="swf_ZhuZiAWan" href="javascript:;" rel="noopener external nofollow" style="font-family:'ZhuZiAWan'!important;color:#303030" onclick="setFont('ZhuZiAWan')">筑紫A丸标准体2.0</a>
+<a class="swf" id="swf_HYTMR" href="javascript:;" rel="noopener external nofollow" style="font-family:'HYTMR'!important;color:#303030" onclick="setFont('HYTMR')">汉仪唐美人</a>
 <a class="swf" id="swf_default" href="javascript:;" rel="noopener external nofollow" style="font-family:-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif;!important;color:#303030" onclick="setFont('default')">系统默认</a>
 </p>
 
@@ -925,6 +929,8 @@ function createWinbox() {
 <a class="swf" id="swfc_JetBrainsMono" href="javascript:;" rel="noopener external nofollow" style="font-family:'JetBrainsMono'!important;color:#303030" onclick="setCodeFont('JetBrainsMono')">JetBrains Mono</a>
 <a class="swf" id="swfc_FiraCode" href="javascript:;" rel="noopener external nofollow" style="font-family:'FiraCode'!important;color:#303030" onclick="setCodeFont('FiraCode')">Fira Code</a>
 <a class="swf" id="swfc_SourceCodePro" href="javascript:;" rel="noopener external nofollow" style="font-family:'SourceCodePro'!important;color:#303030" onclick="setCodeFont('SourceCodePro')">Source Code Pro</a>
+<a class="swf" id="swfc_MiSans" href="javascript:;" rel="noopener external nofollow" style="font-family:'MiSans'!important;color:#303030" onclick="setCodeFont('MiSans')">MiSans</a>
+<a class="swf" id="swfc_Consolas_1" href="javascript:;" rel="noopener external nofollow" style="font-family:'Consolas_1'!important;color:#303030" onclick="setCodeFont('Consolas_1')">Consolas_1</a>
 </p>
 
 <h2>四、背景设置</h2>
@@ -933,7 +939,7 @@ function createWinbox() {
 <h3>1. 风景 · 山野</h3>
 <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1018/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1018/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1041/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1041/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1016/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1016/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1043/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1043/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1044/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1044/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1018/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1018/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1016/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1016/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1018/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1018/1920/1080)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_271.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_271.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_259.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_259.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_204.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_204.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_26.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_26.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_49.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_49.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/dm1.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/dm1.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/p35.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/p35.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_138.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_138.webp)')"></a></div>
               </div>
             </details>
 
@@ -942,7 +948,7 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看风景背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1041/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1041/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1043/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1043/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1044/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1044/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1015/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1015/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1016/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1016/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1018/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1018/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1036/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1036/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1039/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1039/1920/1080)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_page_cover.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_page_cover.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_131.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_131.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_134.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_134.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_145.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_145.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_203.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_203.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_212.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_212.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_245.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_245.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_271.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_271.webp)')"></a></div>
               </div>
             </details>
 
@@ -950,7 +956,7 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看萌宠背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1036/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1036/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1039/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1039/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1041/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1041/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1043/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1043/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1044/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1044/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1015/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1015/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1016/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1016/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1018/1920/1080)" class="imgbox" onclick="changeBg('url(https://picsum.photos/id/1018/1920/1080)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/mc1.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/mc5.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/mc5.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/mc7.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/mc7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/mc8.webp)" class="imgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/mc8.webp)')"></a></div>
               </div>
             </details>
 
@@ -974,7 +980,7 @@ function createWinbox() {
 <h3>6. 适配手机</h3>
 <details class="folding-tag" cyan><summary> 查看适配手机的背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1044/1920/1080)" class="pimgbox" onclick="changeBg('url(https://picsum.photos/id/1044/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1015/1920/1080)" class="pimgbox" onclick="changeBg('url(https://picsum.photos/id/1015/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1016/1920/1080)" class="pimgbox" onclick="changeBg('url(https://picsum.photos/id/1016/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1018/1920/1080)" class="pimgbox" onclick="changeBg('url(https://picsum.photos/id/1018/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1039/1920/1080)" class="pimgbox" onclick="changeBg('url(https://picsum.photos/id/1039/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1039/1920/1080)" class="pimgbox" onclick="changeBg('url(https://picsum.photos/id/1039/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1018/1920/1080)" class="pimgbox" onclick="changeBg('url(https://picsum.photos/id/1018/1920/1080)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://picsum.photos/id/1041/1920/1080)" class="pimgbox" onclick="changeBg('url(https://picsum.photos/id/1041/1920/1080)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/mb2.webp)" class="pimgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/mb2.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/mb4.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/mb7.webp)" class="pimgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/mb7.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/mb8.webp)" class="pimgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/mb8.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_206.webp)" class="pimgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_206.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_230.webp)" class="pimgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_230.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/default_cover_240.webp)" class="pimgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/default_cover_240.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://pcgdemo.265832.xyz/img/mb13.webp)" class="pimgbox" onclick="changeBg('url(https://pcgdemo.265832.xyz/img/mb13.webp)')"></a></div>
               </div>
             </details>
 
@@ -990,7 +996,7 @@ function createWinbox() {
 <h3>8. 自定义背景</h3>
 <details class="folding-tag" cyan><summary> 设置自定义背景 </summary>
               <div class='content'>
-              <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://picsum.photos/id/1015/1920/1080"></center></p><p><center><button class="winbox_btn picbtn" type="button" onclick="getPicture()" title="用上面填写的图片链接切换网站背景">切换背景</button></center></p>
+              <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://pcgdemo.265832.xyz/img/back2.webp"></center></p><p><center><button class="winbox_btn picbtn" type="button" onclick="getPicture()" title="用上面填写的图片链接切换网站背景">切换背景</button></center></p>
               </div>
             </details>
 

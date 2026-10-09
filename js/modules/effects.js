@@ -1,11 +1,11 @@
 /* ============================================================================
  * modules/effects.js —— 页面装饰特效（雪花 / 星空 / 表情放大）
  * ----------------------------------------------------------------------------
- * 本文件由 source/js/fomal.js 拆出（2026-10-03 屎山重构）。
+ * 本文件由 source/js/chfychin.js 拆出（2026-10-03 屎山重构）。
  * 【重要】这里故意不套 IIFE：主题 pug 模板里有大量内联 onclick="xxx()"，
  *        以及别的脚本会直接调全局函数，所以本文件里的声明必须留在全局作用域。
  * ----------------------------------------------------------------------------
- * 包含的模块（括号内为拆分前在 fomal.js 里的行号）：
+ * 包含的模块（括号内为拆分前在 chfychin.js 里的行号）：
  *   · 雪花特效（270-377）—— 冬天全屏飘雪 canvas（#snow），带风力摇曳和落地堆积
  *   · 星空特效（381-435）—— 首页夜空星星 + 随机流星（#universe）
  *   · 表情放大（439-500）—— 点击正文里的 emoji，原地放大再看一眼
@@ -19,7 +19,7 @@
  * ========================================================================== */
 
 /* ------------------------------ 雪花特效 ------------------------------ */
-/* 原 fomal.js 270-377 行，原样搬运，未改逻辑 */
+/* 原 chfychin.js 270-377 行，原样搬运，未改逻辑 */
 /* 雪花特效 start */
 if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
   // 移动端不显示
@@ -159,7 +159,7 @@ if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobi
 /* 雪花特效 end */
 
 /* ------------------------------ 星空特效 ------------------------------ */
-/* 原 fomal.js 381-435 行，原样搬运，未改逻辑 */
+/* 原 chfychin.js 381-435 行，原样搬运，未改逻辑 */
 /* 星空特效 start */
 function dark() {
   window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
@@ -262,7 +262,7 @@ dark()
 /* 星空特效 end */
 
 /* ------------------------------ 表情放大 ------------------------------ */
-/* 原 fomal.js 439-500 行，原样搬运，未改逻辑 */
+/* 原 chfychin.js 439-500 行，原样搬运，未改逻辑 */
 /* 表情放大 start */
 document.addEventListener('pjax:complete', function () {
   if (document.getElementById('post-comment')) owoBig();

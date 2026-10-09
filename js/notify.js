@@ -1,7 +1,7 @@
 /*!
  * notify.js — 轻量通知组件（替代 Vue 2.6.14 + Element-UI 2.15.7）
  * ------------------------------------------------------------------
- * 背景：本站在 fomal.js 中有 14 处 \`new Vue({ data: function () { this.$notify({...}) } })\`，
+ * 背景：本站在 chfychin.js 中有 14 处 \`new Vue({ data: function () { this.$notify({...}) } })\`，
  *       只为调用 Element-UI 的 $notify 弹出右下角提示。为此原先需要加载
  *       Vue(92KB) + Element-UI JS(577KB) + Element-UI CSS(236KB) = 905KB。
  *       本文件用约 4KB 复刻同样的通知外观（同尺寸/配色/动画/自动关闭/悬停暂停）。

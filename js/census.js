@@ -20,7 +20,7 @@ var color = document.documentElement.getAttribute('data-theme') === 'light' ? '#
 
 // —— 主题色读取与派生 ——
 // 主题色由主题运行时写进 <style id="themeColor">，内容是 :root{--theme-color:rgb(57, 197, 187)}
-// 取值来自 source/js/fomal.js 的 setColor()（默认 green），所以只能在运行时读取、不能写死。
+// 取值来自 source/js/chfychin.js 的 setColor()（默认 green），所以只能在运行时读取、不能写死。
 function censusThemeRgb() {
   var v = ''
   try {

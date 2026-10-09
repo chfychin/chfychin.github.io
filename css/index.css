@@ -6604,7 +6604,7 @@ blockquote.pullquote.right {
 /* 手机端自绘滚动条
    手机浏览器（含 Chromium 的 overlay 滚动条模式）只用系统滚动条，会完全忽略 ::-webkit-scrollbar，
    所以电脑上那条主题色斜条纹在手机宽度下根本不会出现。这里准备一条同样式样的自绘滚动条，
-   由 source/js/fomal.js 末尾的脚本驱动：固定在右边缘、随滚动进度移动；只要页面能滚就一直显示（与电脑端“滚动条不隐藏”的取舍一致）。 */
+   由 source/js/chfychin.js 末尾的脚本驱动：固定在右边缘、随滚动进度移动；只要页面能滚就一直显示（与电脑端“滚动条不隐藏”的取舍一致）。 */
 #mscrollbar {
   display: none;
   position: fixed;
@@ -6682,21 +6682,46 @@ blockquote.pullquote.right {
 @font-face {
   font-family: LXGW;
   /* 霞鹜文楷（LXGW WenKai）· SIL OFL 1.1 */
-  src: url(https://cdn.jsdelivr.net/npm/@fontsource/lxgw-wenkai-tc@5/files/lxgw-wenkai-tc-chinese-traditional-400-normal.woff2);
+  /* src: url(https://cdn.jsdelivr.net/npm/@fontsource/lxgw-wenkai-tc@5/files/lxgw-wenkai-tc-chinese-traditional-400-normal.woff2); */
+  src: url(https://pcgdemo.265832.xyz/fonts/霞鹜文楷.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: SourceHanSerif;
   /* 思源宋体（Noto Serif SC）· SIL OFL 1.1 */
-  src: url(https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/files/noto-serif-sc-chinese-simplified-400-normal.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/SourceHanSerif.woff2);
   font-display: swap;
 }
 
-@font-face {
+@font-face { /**/
   font-family: LXGWNeoXiHei;
   /* 霞鹜新晰黑 → 同族思源黑体（Noto Sans SC）替代 · SIL OFL 1.1 */
-  src: url(https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5/files/noto-sans-sc-chinese-simplified-400-normal.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/霞鹜新晰黑.woff2);
+  font-display: swap;
+}
+
+@font-face { /* 优设好身体（YSHST）· SIL OFL 1.1 */
+  font-family: YSHST;
+  src: url(https://pcgdemo.265832.xyz/fonts/优设好身体.woff2);
+  font-display: swap;
+}
+
+@font-face {/* 甜甜圈海报字体（TTQHB）· SIL OFL 1.1 */
+  font-family: TTQHB;
+  src: url(https://pcgdemo.265832.xyz/fonts/甜甜圈海报字体.woff2);
+  font-display: swap;
+}
+
+@font-face { /* 筑紫A丸标准体 SIL OFL 1.1 */
+  font-family: ZhuZiAWan;
+  src: url(https://pcgdemo.265832.xyz/fonts/ZhuZiAWan2.woff2);
+  font-display: swap;
+}
+
+@font-face { /* 汉仪唐美人 SIL OFL 1.1 */
+  font-family: HYTMR;
+  src: url(https://pcgdemo.265832.xyz/fonts/HYTangMeiRen55W.woff2);
   font-display: swap;
 }
 
@@ -6707,23 +6732,37 @@ blockquote.pullquote.right {
 @font-face {
   font-family: JetBrainsMono;
   /* JetBrains Mono · SIL OFL 1.1 */
-  src: url(https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5/files/jetbrains-mono-latin-400-normal.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/JetBrainsMono.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: FiraCode;
   /* Fira Code · SIL OFL 1.1 */
-  src: url(https://cdn.jsdelivr.net/npm/@fontsource/fira-code@5/files/fira-code-latin-400-normal.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/FiraCode.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: SourceCodePro;
   /* Source Code Pro · SIL OFL 1.1 */
-  src: url(https://cdn.jsdelivr.net/npm/@fontsource/source-code-pro@5/files/source-code-pro-latin-400-normal.woff2);
+  src: url(https://pcgdemo.265832.xyz/fonts/SourceCodePro.woff2);
   font-display: swap;
 }
+
+@font-face { /* MiSans· SIL OFL 1.1 */
+  font-family: MiSans;
+  src: url(https://pcgdemo.265832.xyz/fonts/MiSans.woff2);
+  font-display: swap;
+}
+
+@font-face { /* Consolas_1（Consolas）· SIL OFL 1.1 */
+  font-family: Consolas_1;
+  src: url(https://pcgdemo.265832.xyz/fonts/Consolas.woff2);
+  font-display: swap;
+}
+
+
 
 /* 代码块字体：主题只给 #article-container pre/code 设了代码字体，
    这里把文章区以外的 pre/code/kbd/samp 也接到同一个变量上，保证「凡是渲染代码的地方」都跟面板走 */
@@ -7775,13 +7814,13 @@ button#go-up:hover #percent {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(https://picsum.photos/id/1043/1920/1080);
+  background-image: url(https://pcgdemo.265832.xyz/img/default_cover_1.webp);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
 }
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background-image: url(https://picsum.photos/id/1036/1920/1080);
+  background-image: url(https://pcgdemo.265832.xyz/img/default_cover_226.webp);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;

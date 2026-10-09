@@ -7,7 +7,7 @@
  * ----------------------------------------------------------------------------
  * 首屏预置脚本：内联在 head 里同步执行（早于 body 解析、早于首帧），把 localStorage 里的美化设置
  * 提前写进上面这些 style 标签，消除「刷新时先闪默认壁纸 / 默认字体，再跳成自定义」的一帧闪烁。
- * 取值与 source/js/fomal.js 的初始化逐字一致（键缺失时用 fomal.js 的应用默认值）。
+ * 取值与 source/js/chfychin.js 的初始化逐字一致（键缺失时用 chfychin.js 的应用默认值）。
  * ========================================================================== */
 
 (function () {
@@ -38,7 +38,7 @@
   // 5) 字体
   var ft = def(ls("font"), "LXGW");
   if (ft === "default") {
-    // 系统默认字体栈：与 source/js/fomal.js 的 setFont 逐字一致。原来只写 -apple-system，
+    // 系统默认字体栈：与 source/js/chfychin.js 的 setFont 逐字一致。原来只写 -apple-system，
     // 这个关键字在 Windows 上不存在，会让只声明 var(--global-font) 的标题掉到浏览器默认字体。
     var sysStack = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif";
     d.style.setProperty("--global-font", sysStack);

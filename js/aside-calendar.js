@@ -47,7 +47,7 @@
     // 倒计时目标：农历正月初一 = 春节。想换成元旦就写 { label: '元旦', solar: [1, 1] }
     target: { label: '春节', lunarMonth: 1, lunarDay: 1, unit: '天' },
     // 日出日落 / 节气那一行用的坐标。latLng 写了就用它（[纬度, 经度]），
-    // 留 null = 用访客 IP 定位（fomal.js 已经请求了腾讯的位置接口），拿不到就按
+    // 留 null = 用访客 IP 定位（chfychin.js 已经请求了腾讯的位置接口），拿不到就按
     // fallbackLat + 访客时区推出的经度估算，够显示用。
     sun: { latLng: null, fallbackLat: 22.5319 },
     // 访客自己没选过深浅色时，按当天真实日出日落决定日间 / 夜间（详见 applyDayNight）
@@ -295,7 +295,7 @@
     } catch (e) { }
   }
 
-  // fomal.js:81 把腾讯位置接口的结果放在全局 ipLoacation 上
+  // chfychin.js:81 把腾讯位置接口的结果放在全局 ipLoacation 上
   function geoFromIp() {
     var r = global.ipLoacation;
     var loc = r && r.result && r.result.location;
@@ -314,7 +314,7 @@
 
   /* ---- 日间 / 夜间 ---- */
   // 访客自己选过没有？判据与主题 head 脚本一致：saveToLocal('theme')。
-  // fomal.js 手动切换时写的是 saveToLocal.set('theme', …, 2)（2 天有效期，见 fomal.js:1182/1207），
+  // chfychin.js 手动切换时写的是 saveToLocal.set('theme', …, 2)（2 天有效期，见 chfychin.js:1182/1207），
   // 过期就当作没选过、自动模式重新接管；'isDark' 那个键是手动切换时永久写的标记，全站没人读它，
   // 所以不拿它当判据（否则自动模式再也回不来）。
   function hasThemeChoice() {
@@ -336,7 +336,7 @@
   }
 
   // 换主题模式：data-theme 和 body 上的 DarkMode 必须一起改。
-  // fomal.js:1172 用 data-theme 决定切换方向、:1162 用 body.DarkMode 决定加减类，
+  // chfychin.js:1172 用 data-theme 决定切换方向、:1162 用 body.DarkMode 决定加减类，
   // 少写一个访客第一次点月亮按钮就会「没反应」。
   function setMode(isDark) {
     var doc = global.document;
@@ -362,7 +362,7 @@
     return isDay;
   }
 
-  // 给 fomal.js 那段「8 小时自动切换日夜」用：白天 true / 夜间 false
+  // 给 chfychin.js 那段「8 小时自动切换日夜」用：白天 true / 夜间 false
   function isDayNow() {
     var d = now || new Date();
     var g = geo();
@@ -371,7 +371,7 @@
     return d >= t.rise && d < t.set;
   }
 
-  // 腾讯位置接口通常比本脚本晚（fomal.js 是 defer 之后才发请求），到了就重算 + 缓存坐标
+  // 腾讯位置接口通常比本脚本晚（chfychin.js 是 defer 之后才发请求），到了就重算 + 缓存坐标
   function watchGeo() {
     if (CONFIG.sun.latLng) return;
     var tries = 0;
@@ -635,8 +635,8 @@
   // 解析期就把两卡排好（本文件的 <script> 就在日历卡里，此刻公告栏已存在）
   layoutCards();
 
-  // 深浅色也尽早定：本文件是解析期执行（比 defer 的 fomal.js 早），先把模式摆正，
-  // fomal.js 那段「8 小时自动切换」看到模式已经对了就不会再改它（它只在模式不对时才动手）。
+  // 深浅色也尽早定：本文件是解析期执行（比 defer 的 chfychin.js 早），先把模式摆正，
+  // chfychin.js 那段「8 小时自动切换」看到模式已经对了就不会再改它（它只在模式不对时才动手）。
   applyDayNight();
 
   if (global.document && global.document.readyState === 'loading') {

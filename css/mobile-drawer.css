@@ -20,7 +20,7 @@
  *   放在 /css/site-inject.css 之后 → 层叠顺序在主题 /css/index.css 与各站点样式之后，同权重必胜。
  *
  * 配色
- *   一律从 var(--theme-color)（fomal.js 按用户选的主题色写进 :root）派生。
+ *   一律从 var(--theme-color)（chfychin.js 按用户选的主题色写进 :root）派生。
  *   每个自定义属性写两行：第一行是不支持 color-mix() 的老浏览器回退值，第二行才是 color-mix()。
  *   深色模式只覆盖变量，规则本体一套。
  *

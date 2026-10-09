@@ -3,7 +3,7 @@
  * Twikoo 评论美化（站点独立样式，不改主题源码）
  * 引入：_config.fomalhaut.yml → inject.head 的 <link rel="stylesheet" href="/css/twikoo.css?v=...">
  * 目标：在保留主题原「气泡评论」观感的前提下，把 Twikoo 2.x 的表单 / 列表 / 交互统一到站点主题色与卡片语言
- * 配色：主体色一律取 var(--theme-color)（fomal.js 按用户选择的主题色写进 :root），
+ * 配色：主体色一律取 var(--theme-color)（chfychin.js 按用户选择的主题色写进 :root），
  *       并用 color-mix() 派生浅底/描边/悬浮色；每个变量第一行是「不支持 color-mix() 的老浏览器」回退值。
  * 兼容：只使用 Twikoo 2.x 的类名（.tk-*），老版本 1.x 的 .el-* 选择器不受影响。
  */
