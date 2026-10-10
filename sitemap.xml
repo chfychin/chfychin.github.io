@@ -437,13 +437,6 @@
   </url>
   
   <url>
-    <loc>http://265832.xyz/tags/STM32/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://265832.xyz/tags/SQL/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -452,6 +445,13 @@
   
   <url>
     <loc>http://265832.xyz/tags/cpeditor/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://265832.xyz/tags/STM32/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -521,6 +521,13 @@
   </url>
   
   <url>
+    <loc>http://265832.xyz/tags/%E4%BD%9C%E4%B8%BA%E6%97%A5%E8%AE%B0%E5%8A%A0%E5%AF%86/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://265832.xyz/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -529,13 +536,6 @@
   
   <url>
     <loc>http://265832.xyz/tags/%E6%AF%9B%E6%A6%82/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://265832.xyz/tags/%E4%BD%9C%E4%B8%BA%E6%97%A5%E8%AE%B0%E5%8A%A0%E5%AF%86/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
