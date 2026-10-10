@@ -49,7 +49,7 @@
  *    520  bingHistoryBg
  *    522  EEEDog
  *    524  seovx
- *    526  picsum
+ *    526  nature
  *    530  waiBizhi
  *    532  btstu
  *    536  unsplash
@@ -534,12 +534,13 @@ let bingHistoryBg = "url(https://bing.biturl.top/?resolution=1920&format=image&i
 let EEEDog = "url(https://www.loliapi.com/acg/pc/)";
 // 随机美图（2026-09-30 换到 api.dujin.org/pic/；2026-10-06 该接口开始返回 0 字节空图，改用 moe.jitsu.top 萌图）
 let seovx = "url(https://moe.jitsu.top/api?sort=pc)";
-// picsum随机
-let picsum = "url(https://pcgdemo.265832.xyz/img/default_cover_5.webp)";
-// 小歪二次元
+// nature随机
+// let nature = "url(https://pcgdemo.265832.xyz/img/default_cover_5.webp)";
+let nature = "url(https://api.6045833.xyz/nature)";
+// 墨天逸二次元
 // let waiDongman = "url(https://api.ixiaowai.cn/api/api.php)";
 // 高清壁纸（2026-09-30 修复：原 api.ixiaowai.cn 已失效）
-let waiBizhi = "url(https://www.loliapi.com/bg/)";
+let waiBizhi = "url(https://api.mtyqx.cn/api/random.php)";
 // 手机竖屏二次元（2026-09-30 修复：原 api.btstu.cn 仅有 http，HTTPS 站会被浏览器按混合内容拦截）
 let btstu = "url(https://t.mwm.moe/mp)";
 // tuapi 动漫
@@ -988,7 +989,7 @@ function createWinbox() {
 <h3>7. 壁纸API</h3>
 <details class="folding-tag" cyan><summary> 查看壁纸API系列背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a id="bingDayBox" rel="noopener external nofollow" style="background-image: ${bingDayBg}" class="box apiBox" onclick="changeBg('${bingDayBg}')"></a><a id="bingHistoryBox" rel="noopener external nofollow" style="background-image: ${bingHistoryBg}" class="box apiBox" onclick="changeBg('${bingHistoryBg}')"></a><a id="EEEDogBox" rel="noopener external nofollow" style="background-image: ${EEEDog}" class="box apiBox" onclick="changeBg('${EEEDog}')"></a><a id="seovxBox" rel="noopener external nofollow" style="background-image: ${seovx}" class="box apiBox" onclick="changeBg('${seovx}')"></a><a id="picsumBox" rel="noopener external nofollow" style="background-image: ${picsum}" class="box apiBox" onclick="changeBg('${picsum}')"></a><a id="waiBizhiBox" rel="noopener external nofollow" style="background-image: ${waiBizhi}" class="box apiBox" onclick="changeBg('${waiBizhi}')"></a><a id="btstuBox" rel="noopener external nofollow" style="background-image: ${btstu}" class="box apiBox" onclick="changeBg('${btstu}')"></a><a id="unsplashBox" rel="noopener external nofollow" style="background-image: ${unsplash}" class="box apiBox" onclick="changeBg('${unsplash}')"></a></div>
+              <div class="bgbox"><a id="bingDayBox" rel="noopener external nofollow" style="background-image: ${bingDayBg}" class="box apiBox" onclick="changeBg('${bingDayBg}')"></a><a id="bingHistoryBox" rel="noopener external nofollow" style="background-image: ${bingHistoryBg}" class="box apiBox" onclick="changeBg('${bingHistoryBg}')"></a><a id="EEEDogBox" rel="noopener external nofollow" style="background-image: ${EEEDog}" class="box apiBox" onclick="changeBg('${EEEDog}')"></a><a id="seovxBox" rel="noopener external nofollow" style="background-image: ${seovx}" class="box apiBox" onclick="changeBg('${seovx}')"></a><a id="natureBox" rel="noopener external nofollow" style="background-image: ${nature}" class="box apiBox" onclick="changeBg('${nature}')"></a><a id="waiBizhiBox" rel="noopener external nofollow" style="background-image: ${waiBizhi}" class="box apiBox" onclick="changeBg('${waiBizhi}')"></a><a id="btstuBox" rel="noopener external nofollow" style="background-image: ${btstu}" class="box apiBox" onclick="changeBg('${btstu}')"></a><a id="unsplashBox" rel="noopener external nofollow" style="background-image: ${unsplash}" class="box apiBox" onclick="changeBg('${unsplash}')"></a></div>
               </div>
             </details>
 

@@ -9927,7 +9927,7 @@ hr:before {
 #bingHistoryBox:hover,
 #EEEDogBox:hover,
 #seovxBox:hover,
-#picsumBox:hover,
+#natureBox:hover,
 #waiBizhiBox:hover,
 #btstuBox:hover,
 #unsplashBox:hover {
@@ -9959,13 +9959,13 @@ hr:before {
   left: 30px;
   content: "jitsu萌图壁纸";
 }
-#picsumBox::before {
+#natureBox::before {
   left: 24px;
-  content: "picsum随机壁纸";
+  content: "风景随机壁纸";
 }
 #waiBizhiBox::before {
   left: 34px;
-  content: "小歪高清壁纸";
+  content: "墨天逸高清壁纸";
 }
 #btstuBox::before {
   left: 34px;
