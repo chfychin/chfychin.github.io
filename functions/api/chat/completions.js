@@ -92,7 +92,7 @@ function upstreamBase(env) {
   return String((env && env.DEEPSEEK_API_BASE) || 'https://api.deepseek.com').replace(/\/+$/, '');
 }
 function modelName(env) {
-  return String((env && env.DEEPSEEK_MODEL) || 'deepseek-chat');
+  return String((env && env.DEEPSEEK_MODEL) || 'deepseek-chat'); //deepseek-chat
 }
 const hits = new Map();
 function rateOk(env, request, ip) {
