@@ -29,7 +29,7 @@ function createtime1() {
   var dnum = Math.floor(days);
 
   var ascll = [
-    `欢迎来到Demoの小家!`,
+    `欢迎来到Chfychinの小家!`,
     `Future is now 🍭🍭🍭`,
     `
     
@@ -93,7 +93,7 @@ function createtime2() {
   setTimeout(
     console.warn.bind(
       console,
-      "%c ⚡ Powered by Demo %c 你正在访问Demoの小家",
+      "%c ⚡ Powered by Chfychin %c 你正在访问Chfychin🍭の小家",
       "color:white; background-color:#f0ad4e",
       ""
     )
