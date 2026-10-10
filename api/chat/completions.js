@@ -23,7 +23,7 @@
  * 安全边界（实话实说）：代理地址是公开的，白名单挡的是「别的网站拿你的额度」，
  * 挡不住手写 curl 的人；所以还有每 IP 限流 + max_tokens 上限。要更硬就接 Upstash 之类做全局限流。
  */
-const UPSTREAM = String(process.env.DEEPSEEK_API_BASE || 'https://api.deepseek.com').replace(/\/+$/, '');
+const UPSTREAM = String(process.env.DEEPSEEK_API_BASE || 'https://apihub.agnes-ai.com/v1').replace(/\/+$/, ''); //https://api.deepseek.com
 const MODEL = String(process.env.DEEPSEEK_MODEL || 'agnes-2.5-flash');// deepseek-chat
 const DEFAULT_ORIGINS = 'https://example.com,https://www.example.com';
 const MAX_BODY_BYTES = 400 * 1024;
