@@ -105,9 +105,9 @@ if (localStorage.getItem("reset_8") == undefined) {
    family 名与 _custom/custom.css 里的 @font-face、面板按钮 id（swf_ / swfc_ + family）严格一一对应。
    localStorage.font / localStorage.codeFont 存的就是 family 名本身：常规字体直接当 --global-font 用，
    代码块字体当 --code-font 用（样式表里 pre/code 写的是 var(--code-font, JetBrainsMono)）。 */
-var FONT_LIST = ["LXGW", "SourceHanSerif", "LXGWNeoXiHei", "default"];
+var FONT_LIST = ["LXGW", "SourceHanSerif", "LXGWNeoXiHei", "YSHST", "TTQHB", "ZhuZiAWan", "HYTMR", "default"];
 var FONT_DEFAULT = "LXGW";
-var CODE_FONT_LIST = ["JetBrainsMono", "FiraCode", "SourceCodePro"];
+var CODE_FONT_LIST = ["JetBrainsMono", "FiraCode", "SourceCodePro", "MiSans", "Consolas_1"];
 var CODE_FONT_DEFAULT = "JetBrainsMono";
 
 // 恢复localStorage默认配置项
