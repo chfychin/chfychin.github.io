@@ -51,7 +51,7 @@
     reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   } catch (e) { /* 老浏览器：按有动画处理 */ }
 
-  /* 按「字素簇」切分：中文与 emoji（🥝🤣🍭✦ 这类代理对 / 组合序列）都不会被切成半个 */
+  /* 按「字素簇」切分：中文与 emoji（🍉🤣🍭✦ 这类代理对 / 组合序列）都不会被切成半个 */
   function split(str) {
     str = String(str == null ? '' : str);
     try {

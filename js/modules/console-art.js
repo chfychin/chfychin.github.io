@@ -93,7 +93,7 @@ function createtime2() {
   setTimeout(
     console.warn.bind(
       console,
-      "%c ⚡ Powered by Chfychin %c 你正在访问Chfychin🍭の小家",
+      "%c ⚡ Powered by Chfychin %c 你正在访问Chfychin🍉の小家",
       "color:white; background-color:#f0ad4e",
       ""
     )
