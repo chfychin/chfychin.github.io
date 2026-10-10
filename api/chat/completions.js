@@ -122,7 +122,7 @@ module.exports = async function handler(req, res) {
     res.setHeader('Cache-Control', 'no-store');
     res.end(JSON.stringify({
       ok: !!String(process.env.DEEPSEEK_API_KEY || '').trim(),
-      mode: 'proxy', model: MODEL, hasKey: !!String(process.env.DEEPSEEK_API_KEY || '').trim(),
+      mode: 'agnes-2.5-flash', model: MODEL, hasKey: !!String(process.env.DEEPSEEK_API_KEY || '').trim(),//proxy
       allowSuffixes: allowSuffixesNode(), extraOrigins: extraOriginsNode(), maxPerHour: MAX_PER_WINDOW
     }));
     return;
