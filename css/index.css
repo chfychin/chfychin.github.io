@@ -6682,7 +6682,6 @@ blockquote.pullquote.right {
 @font-face {
   font-family: LXGW;
   /* 霞鹜文楷（LXGW WenKai）· SIL OFL 1.1 */
-  /* src: url(https://cdn.jsdelivr.net/npm/@fontsource/lxgw-wenkai-tc@5/files/lxgw-wenkai-tc-chinese-traditional-400-normal.woff2); */
   src: url(https://pcgdemo.265832.xyz/fonts/霞鹜文楷.woff2);
   font-display: swap;
 }
