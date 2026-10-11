@@ -120,6 +120,9 @@ function redisRequest(command) {
     });
 
     req.on('error', reject);
+    req.setTimeout(7000, () => {
+      req.destroy(new Error('Redis request timed out. Check KV_REST_API_URL and KV_REST_API_TOKEN.'));
+    });
     req.write(body);
     req.end();
   });
@@ -186,9 +189,10 @@ function requestUrl(req) {
 
 async function getLikes(req, res) {
   const url = requestUrl(req);
-  const keys = String(url.searchParams.get('keys') || '')
-    .split(',')
-    .map((key) => cleanKey(decodeURIComponent(key)))
+  const rawKeys = url.searchParams.getAll('keys');
+  const keys = (rawKeys.length ? rawKeys : [url.searchParams.get('keys') || ''])
+    .flatMap((key) => String(key || '').split(','))
+    .map((key) => cleanKey(key))
     .filter(Boolean);
   const uniqueKeys = Array.from(new Set(keys)).slice(0, 100);
   const counts = {};

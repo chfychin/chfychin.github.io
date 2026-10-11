@@ -184,7 +184,12 @@
       return;
     }
 
-    requestJson(endpoint + '?keys=' + encodeURIComponent(keys.join(',')), { method: 'GET' })
+    var params = new URLSearchParams();
+    keys.forEach(function (key) {
+      params.append('keys', key);
+    });
+
+    requestJson(endpoint + '?' + params.toString(), { method: 'GET' })
       .then(function (data) {
         buttons.forEach(function (button) {
           var key = button.dataset.chfyEssayKey;
