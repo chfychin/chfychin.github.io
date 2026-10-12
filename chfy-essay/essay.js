@@ -137,6 +137,27 @@
     if (count) count.textContent = String(total);
   }
 
+  function serverCount(button) {
+    var value = Number(button && button.dataset ? button.dataset.chfyEssayServerCount : 0);
+    return Number.isFinite(value) && value > 0 ? value : 0;
+  }
+
+  function likeButtonsForKey(key) {
+    return Array.prototype.slice.call(document.querySelectorAll('.chfy-essay-like')).filter(function (button) {
+      return button.dataset.chfyEssayKey === key;
+    });
+  }
+
+  function applyLikeState(key, liked, count) {
+    if (liked) setStoredItem(likedKey(key), '1');
+    else removeStoredItem(likedKey(key));
+
+    likeButtonsForKey(key).forEach(function (button) {
+      renderLike(button, count);
+      setLikeUnavailable(button, false);
+    });
+  }
+
   function requestJson(url, options) {
     return fetch(url, Object.assign({
       credentials: 'same-origin',
@@ -206,6 +227,61 @@
       });
   }
 
+  function updateLike(button) {
+    var key = button && button.dataset ? button.dataset.chfyEssayKey : '';
+    if (!key) return;
+
+    var liked = getStoredItem(likedKey(key)) === '1';
+    var delta = liked ? -1 : 1;
+    var endpoint = likeApiEndpoint();
+    var beforeLiked = liked;
+    var beforeCount = serverCount(button);
+    var optimisticCount = Math.max(0, beforeCount + delta);
+
+    if (!endpoint) {
+      var localCount = Math.max(0, readLocalLikes(key) + delta);
+      writeLocalLikes(key, localCount);
+      applyLikeState(key, delta > 0, localCount);
+      return;
+    }
+
+    if (button.classList.contains('is-loading')) return;
+    applyLikeState(key, delta > 0, optimisticCount);
+    likeButtonsForKey(key).forEach(function (target) {
+      target.classList.add('is-loading');
+    });
+    button.classList.add('is-loading');
+    requestJson(endpoint, {
+      method: 'POST',
+      body: JSON.stringify({ key: key, delta: delta })
+    }).then(function (data) {
+      applyLikeState(key, delta > 0, data.count || 0);
+    }).catch(function () {
+      applyLikeState(key, beforeLiked, beforeCount);
+      likeButtonsForKey(key).forEach(function (target) {
+        setLikeUnavailable(target, true);
+      });
+    }).finally(function () {
+      likeButtonsForKey(key).forEach(function (target) {
+        target.classList.remove('is-loading');
+      });
+    });
+  }
+
+  function bindLikeDelegate() {
+    if (document.documentElement.dataset.chfyEssayLikeDelegate === 'true') return;
+    document.documentElement.dataset.chfyEssayLikeDelegate = 'true';
+    document.addEventListener('click', function (event) {
+      if (event.chfyEssayLikeHandled) return;
+      var button = event.target && event.target.closest ? event.target.closest('.chfy-essay-like') : null;
+      if (!button) return;
+      event.preventDefault();
+      event.stopPropagation();
+      event.chfyEssayLikeHandled = true;
+      updateLike(button);
+    }, false);
+  }
+
   function bindLikes() {
     var buttons = Array.prototype.slice.call(document.querySelectorAll('.chfy-essay-like'));
     if (!buttons.length) return;
@@ -214,46 +290,9 @@
       var key = button.dataset.chfyEssayKey;
       if (!key) return;
       renderLike(button, button.dataset.chfyEssayServerCount || 0);
-
-      if (button.dataset.chfyEssayLikeBound === 'true') return;
-      button.dataset.chfyEssayLikeBound = 'true';
-      button.addEventListener('click', function () {
-        var liked = getStoredItem(likedKey(key)) === '1';
-        var delta = liked ? -1 : 1;
-        var endpoint = likeApiEndpoint();
-
-        if (!endpoint) {
-          var localCount = readLocalLikes(key);
-          if (liked) {
-            removeStoredItem(likedKey(key));
-            localCount = Math.max(0, localCount - 1);
-          } else {
-            setStoredItem(likedKey(key), '1');
-            localCount += 1;
-          }
-          writeLocalLikes(key, localCount);
-          renderLike(button, localCount);
-          setLikeUnavailable(button, false);
-          return;
-        }
-
-        button.classList.add('is-loading');
-        requestJson(endpoint, {
-          method: 'POST',
-          body: JSON.stringify({ key: key, delta: delta })
-        }).then(function (data) {
-          if (delta > 0) setStoredItem(likedKey(key), '1');
-          else removeStoredItem(likedKey(key));
-          renderLike(button, data.count || 0);
-          setLikeUnavailable(button, false);
-        }).catch(function () {
-          setLikeUnavailable(button, true);
-        }).finally(function () {
-          button.classList.remove('is-loading');
-        });
-      });
     });
 
+    bindLikeDelegate();
     loadGlobalLikes(buttons);
   }
 
@@ -325,4 +364,14 @@
   }
 
   document.addEventListener('pjax:complete', bindEssayActions);
+  window.chfyEssayToggleLike = function (button, event) {
+    if (event) {
+      if (event.chfyEssayLikeHandled) return;
+      event.preventDefault();
+      event.stopPropagation();
+      event.chfyEssayLikeHandled = true;
+    }
+    updateLike(button);
+  };
+  window.chfyEssayBindEssayActions = bindEssayActions;
 })();
