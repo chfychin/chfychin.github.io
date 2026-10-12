@@ -110,7 +110,7 @@
   }
 
   function likedKey(key) {
-    return storageKey('liked', key);
+    return storageKey('liked:v2', key);
   }
 
   function localLikeKey(key) {
@@ -232,9 +232,14 @@
     if (!key) return;
 
     var liked = getStoredItem(likedKey(key)) === '1';
-    var delta = liked ? -1 : 1;
+    if (liked) {
+      applyLikeState(key, true, serverCount(button));
+      return;
+    }
+
+    var delta = 1;
     var endpoint = likeApiEndpoint();
-    var beforeLiked = liked;
+    var beforeLiked = false;
     var beforeCount = serverCount(button);
     var optimisticCount = Math.max(0, beforeCount + delta);
 
