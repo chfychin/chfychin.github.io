@@ -15,4 +15,4 @@
  *   页脚在 #body-wrap 内，换页会被整块替换，所以除首屏外还要在 pjax 事件里重补一次；
  *   用 data-ft-music 做幂等标记，重复触发不会长出第二条。
  */
-!function(){function e(){var e=document.querySelector("#footer .ft-links");if(e&&!e.querySelector("a[data-ft-music]")){var t=e.querySelectorAll("li");if(t.length){var n=t[t.length-1],a=document.createElement("a");a.href="/life/music/",a.textContent="听点音乐",a.setAttribute("data-ft-music","1"),n.appendChild(a)}}}e(),["DOMContentLoaded","pjax:complete","pjax:success","pjax:end"].forEach((function(t){document.addEventListener(t,e)}))}();
+!function(){function e(){var e=document.querySelector("#footer .ft-links");if(e&&!e.querySelector("a[data-ft-music]")){var t=e.querySelectorAll("li");if(t.length){var n=t[t.length-1],a=document.createElement("a");a.href="/life/music/",a.textContent="听点音乐",a.setAttribute("data-ft-music","1"),n.appendChild(a)}}}e(),["DOMContentLoaded","pjax:complete","pjax:success","pjax:end"].forEach(function(t){document.addEventListener(t,e)})}();
