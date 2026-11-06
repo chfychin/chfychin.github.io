@@ -99,178 +99,24 @@
     });
   }
 
-  function likeApiEndpoint() {
-    var page = document.querySelector('.chfy-essay-page');
-    return page && page.dataset.chfyEssayLikeApi ? page.dataset.chfyEssayLikeApi.trim() : '';
-  }
-
-  function buttonBase(button) {
-    var base = Number(button.dataset.chfyEssayBase || 0);
-    return Number.isFinite(base) && base > 0 ? base : 0;
-  }
-
   function likedKey(key) {
-    return storageKey('liked:v2', key);
+    return storageKey('liked:local', key);
   }
 
-  function localLikeKey(key) {
-    return storageKey('likes', key);
-  }
-
-  function readLocalLikes(key) {
-    var number = Number(getStoredItem(localLikeKey(key)));
-    return Number.isFinite(number) && number > 0 ? number : 0;
-  }
-
-  function writeLocalLikes(key, value) {
-    setStoredItem(localLikeKey(key), String(Math.max(0, Number(value || 0))));
-  }
-
-  function renderLike(button, serverCount) {
+  function renderLike(button) {
     var key = button.dataset.chfyEssayKey;
-    var count = button.querySelector('.chfy-essay-like-count');
     var liked = getStoredItem(likedKey(key)) === '1';
-    var total = buttonBase(button) + Math.max(0, Number(serverCount || 0));
-
-    button.dataset.chfyEssayServerCount = String(Math.max(0, Number(serverCount || 0)));
     button.classList.toggle('is-liked', liked);
-    if (count) count.textContent = String(total);
-  }
-
-  function serverCount(button) {
-    var value = Number(button && button.dataset ? button.dataset.chfyEssayServerCount : 0);
-    return Number.isFinite(value) && value > 0 ? value : 0;
-  }
-
-  function likeButtonsForKey(key) {
-    return Array.prototype.slice.call(document.querySelectorAll('.chfy-essay-like')).filter(function (button) {
-      return button.dataset.chfyEssayKey === key;
-    });
-  }
-
-  function applyLikeState(key, liked, count) {
-    if (liked) setStoredItem(likedKey(key), '1');
-    else removeStoredItem(likedKey(key));
-
-    likeButtonsForKey(key).forEach(function (button) {
-      renderLike(button, count);
-      setLikeUnavailable(button, false);
-    });
-  }
-
-  function requestJson(url, options) {
-    return fetch(url, Object.assign({
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' }
-    }, options || {})).then(function (response) {
-      return response.json().catch(function () {
-        return {};
-      }).then(function (data) {
-        if (!response.ok || data.ok === false) {
-          throw new Error(data && data.error && data.error.message ? data.error.message : 'Like service unavailable');
-        }
-        return data;
-      });
-    });
-  }
-
-  function setLikeUnavailable(button, unavailable) {
-    button.classList.toggle('is-unavailable', unavailable);
-    if (unavailable) button.title = '点赞服务暂不可用';
-    else button.removeAttribute('title');
-  }
-
-  function loadGlobalLikes(buttons) {
-    var endpoint = likeApiEndpoint();
-    if (!endpoint) {
-      buttons.forEach(function (button) {
-        var key = button.dataset.chfyEssayKey;
-        renderLike(button, readLocalLikes(key));
-        setLikeUnavailable(button, false);
-      });
-      return;
-    }
-
-    var keys = buttons.map(function (button) {
-      return button.dataset.chfyEssayKey;
-    }).filter(Boolean).filter(function (key, index, list) {
-      return list.indexOf(key) === index;
-    });
-
-    if (!keys.length || typeof fetch !== 'function') {
-      buttons.forEach(function (button) {
-        renderLike(button, 0);
-        setLikeUnavailable(button, true);
-      });
-      return;
-    }
-
-    var params = new URLSearchParams();
-    keys.forEach(function (key) {
-      params.append('keys', key);
-    });
-
-    requestJson(endpoint + '?' + params.toString(), { method: 'GET' })
-      .then(function (data) {
-        buttons.forEach(function (button) {
-          var key = button.dataset.chfyEssayKey;
-          var count = data.counts && Object.prototype.hasOwnProperty.call(data.counts, key) ? data.counts[key] : 0;
-          renderLike(button, count);
-          setLikeUnavailable(button, false);
-        });
-      })
-      .catch(function () {
-        buttons.forEach(function (button) {
-          renderLike(button, button.dataset.chfyEssayServerCount || 0);
-          setLikeUnavailable(button, true);
-        });
-      });
   }
 
   function updateLike(button) {
     var key = button && button.dataset ? button.dataset.chfyEssayKey : '';
     if (!key) return;
 
-    var liked = getStoredItem(likedKey(key)) === '1';
-    if (liked) {
-      applyLikeState(key, true, serverCount(button));
-      return;
-    }
+    if (getStoredItem(likedKey(key)) === '1') removeStoredItem(likedKey(key));
+    else setStoredItem(likedKey(key), '1');
 
-    var delta = 1;
-    var endpoint = likeApiEndpoint();
-    var beforeLiked = false;
-    var beforeCount = serverCount(button);
-    var optimisticCount = Math.max(0, beforeCount + delta);
-
-    if (!endpoint) {
-      var localCount = Math.max(0, readLocalLikes(key) + delta);
-      writeLocalLikes(key, localCount);
-      applyLikeState(key, delta > 0, localCount);
-      return;
-    }
-
-    if (button.classList.contains('is-loading')) return;
-    applyLikeState(key, delta > 0, optimisticCount);
-    likeButtonsForKey(key).forEach(function (target) {
-      target.classList.add('is-loading');
-    });
-    button.classList.add('is-loading');
-    requestJson(endpoint, {
-      method: 'POST',
-      body: JSON.stringify({ key: key, delta: delta })
-    }).then(function (data) {
-      applyLikeState(key, delta > 0, data.count || 0);
-    }).catch(function () {
-      applyLikeState(key, beforeLiked, beforeCount);
-      likeButtonsForKey(key).forEach(function (target) {
-        setLikeUnavailable(target, true);
-      });
-    }).finally(function () {
-      likeButtonsForKey(key).forEach(function (target) {
-        target.classList.remove('is-loading');
-      });
-    });
+    renderLike(button);
   }
 
   function bindLikeDelegate() {
@@ -294,11 +140,10 @@
     buttons.forEach(function (button) {
       var key = button.dataset.chfyEssayKey;
       if (!key) return;
-      renderLike(button, button.dataset.chfyEssayServerCount || 0);
+      renderLike(button);
     });
 
     bindLikeDelegate();
-    loadGlobalLikes(buttons);
   }
 
   function findCommentEditor() {

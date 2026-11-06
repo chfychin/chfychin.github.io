@@ -258,12 +258,12 @@ html.chfy-essay-doc #page.chfy-essay-paper #post-comment,
 
 .chfy-essay-like {
   display: inline-flex;
-  min-width: 46px;
+  width: 28px;
+  min-width: 28px;
   height: 28px;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 0 10px;
+  padding: 0;
   border: 0;
   border-radius: 999px;
   background: rgba(122, 132, 148, 0.1);
@@ -283,28 +283,12 @@ html.chfy-essay-doc #page.chfy-essay-paper #post-comment,
   color: #ff4f70;
 }
 
-.chfy-essay-like.is-loading {
-  cursor: wait;
-  opacity: 0.68;
-  pointer-events: none;
-}
-
-.chfy-essay-like.is-unavailable {
-  opacity: 0.62;
-}
-
 .chfy-essay-like-icon {
   width: 15px;
   height: 15px;
   background: currentColor;
   content: "";
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35 10.55 20.03C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-
-.chfy-essay-like-count {
-  min-width: 1ch;
-  font-size: 0.84rem;
-  font-weight: 700;
 }
 
 .chfy-essay-comment {
